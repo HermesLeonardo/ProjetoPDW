@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="en-us"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+
+
+<h:head>
+    <title>Avaliação Formativa</title>
+</h:head>
+
+<h:body>
+
+    <h:form>
+
+        <p:panel header="Cadastro Pessoa">
+            <p:messages id="mensagem" closable="true" />
+
+            <h:panelGrid columns="2">
+
+                <p:outputLabel value="Codigo "/>
+                <p:inputText size="20"
+                             maxlength="5"
+                             value="#{avaliacaoForControlador.avaliacaoForEntidades.codigo}"
+                             required="true"
+                             requiredMessage="O campo Codigo é obrigatorio !"
+                             converterMessage="Informe um valor valido para codigo"/>
+
+                <p:outputLabel value="Nome"/>
+                <p:inputText size="20"
+                             maxlength="50"
+                             value="#{avaliacaoForControlador.avaliacaoForEntidades.nome}"
+                             required="true"
+                             requiredMessage="O campo nome é obrigatorio"/>
+
+                <p:outputLabel value="CPF"/>
+                <p:inputMask id="CPF"
+                             size="20"
+                             value="#{avaliacaoForControlador.avaliacaoForEntidades.CPF}"
+                             mask="999.999.999-99" validateMask="true"
+                             required="true"
+                             requiredMessage="O campo CPF é obrigatorio"
+                             converter="jakarta.faces.Character"/>
+
+                <p:outputLabel value="Data de Nascimento"/>
+                <p:calendar readonlyInput="true"
+                            pattern="dd/MM/yyyy"
+                            value="#{avaliacaoForControlador.avaliacaoForEntidades.datanasc}"
+                            required="true"
+                            requiredMessage="o campo de data de nascimento é obrigatorio"/>
+
+                </h:panelGrid>
+
+            <h:panelGrid columns="1">
+
+                <p:commandButton value="Salvar"
+                                 actionListener="#{avaliacaoForControlador.salvar()}"
+                                 update="mensagem"/>
+            </h:panelGrid>
+
+        </p:panel>
+
+        <p:panel header="Cadastro Endereço">
+            <p:messages id="mensagem2" closable="true" />
+
+            <h:panelGrid columns="2">
+
+                <p:outputLabel value="Rua"/>
+                <p:inputText size="20"
+                             maxlength="50"
+                             value="#{avaliacaoForControlador.avaliacaoForEntidades.rua}"
+                             required="true"
+                             requiredMessage="O campo Rua é obrigatorio"/>
+
+                <p:outputLabel value="Numero casa"/>
+                <p:inputText size="20"
+                             maxlength="5"
+                             value="#{avaliacaoForControlador.avaliacaoForEntidades.numeroCasa}"
+                             required="true"
+                             requiredMessage="O campo Numero da Casa é obrigatorio"
+                             converterMessage="Esse valor tem que ser numerico"/>
+
+                <p:outputLabel value="Bairro"/>
+                <p:inputText size="20"
+                             maxlength="25"
+                             value="#{avaliacaoForControlador.avaliacaoForEntidades.bairro}"
+                             required="true"
+                             requiredMessage="O campo Bairro é obrigatorio"/>
+
+                <p:outputLabel value="Cidade"/>
+                <p:inputText size="20"
+                             maxlength="20"
+                             value="#{avaliacaoForControlador.avaliacaoForEntidades.cidade}"
+                             required="true"
+                             requiredMessage="O campo cidade é obrigtorio"/>
+
+                <p:outputLabel value="UF"/>
+                <p:inputText size="20"
+                             maxlength="2"
+                             value="#{avaliacaoForControlador.avaliacaoForEntidades.UF}"
+                             required="true"
+                             requiredMessage="O campo UF é obrigtorio"
+                             converter="jakarta.faces.Character"/>
+
+                <p:outputLabel value="CEP"/>
+                <p:inputMask size="20"
+                             value="#{avaliacaoForControlador.avaliacaoForEntidades.CEP}"
+                             maxlength="8"
+                             mask="99.999-999"
+                             required="true"
+                             requiredMessage="O campo CEP é obrigtorio"
+                             converter="jakarta.faces.Character"/>
+
+                <p:outputLabel value="Complemento"/>
+                <p:inputText size="20"
+                             maxlength="20"
+                             value="#{avaliacaoForControlador.avaliacaoForEntidades.complemento}"
+                             required="true"
+                             requiredMessage="O campo cidade é obrigtorio"/>
+
+            </h:panelGrid>
+
+            <h:panelGrid columns="1">
+
+                <p:commandButton value="Salvar"
+                                 actionListener="#{avaliacaoForControlador.salvarendereco()}"
+                                 update="mensagem2"/>
+
+            </h:panelGrid>
+
+
+        </p:panel>
+
+    </h:form>
+
+</h:body>
+
+</html>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="en-us"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+
+
+<h:head>
+    <title>Projeto</title>
+</h:head>
+
+<h:body>
+
+    <h:form>
+
+        <p:panel header="Produto">
+            <p:messages id="mensagem" closable="true" />
+
+            <h:panelGrid columns="2">
+
+                <p:outputLabel value="Codigo "/>
+                <p:inputText size="20"
+                             maxlength="5"
+                             value="#{produtoControlador.produto.codigo}"
+                             required="true"
+                             requiredMessage="O campo Codigo é obrigatorio krlh"
+                             converterMessage="Informe um valor valido né meu amigo"/>
+
+                <p:outputLabel value="Nome"/>
+                <p:inputText size="50"
+                             maxlength="100"
+                             value="#{produtoControlador.produto.nome}"
+                             required="true"
+                             requiredMessage="O compo Nome é obrigatorio"/>
+
+                <p:outputLabel value="Quantidade"/>
+                <p:inputText size="10"
+                             maxlength="4"
+                             value="#{produtoControlador.produto.quantidade}"
+                             required="true"
+                             requiredMessage="O campo Quantidade é obrigatorio"
+                             converterMessage="O campo aceita numeros inteiros apenas"/>
+
+                <p:outputLabel value="Preço"/>
+                <p:inputText size="10"
+                             maxlength="5"
+                             value="#{produtoControlador.produto.preco}"
+                             required="true"
+                             requiredMessage="O campo preço é obrigatorio"
+                             converterMessage="O campo Preço aceita apenas valores inteiros"/>
+
+                <p:outputLabel value="Data de validade"/>
+                <p:calendar readonlyInput="true"
+                            pattern="dd/MM/yyyy"
+                            value="#{produtoControlador.produto.validade}"
+                            required="true"
+                            requiredMessage="Campo de valiade é obrigatorio"/>
+
+
+
+            </h:panelGrid>
+
+            <h:panelGrid columns="1">
+
+                <p:commandButton value="Salvar"
+                                 actionListener="#{produtoControlador.salvar()}"
+                                 update="mensagem"/>
+
+            </h:panelGrid>
+
+        </p:panel>
+
+    </h:form>
+
+</h:body>
+
+</html>

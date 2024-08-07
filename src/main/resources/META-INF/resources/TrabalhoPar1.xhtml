@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html lang="en-us"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+
+
+
+<h:head>
+    <title>Conversão</title>
+</h:head>
+
+<h:body>
+
+    <h:form>
+
+        <p:panel header="Conversão">
+
+            <h:panelGrid columns="2">
+
+                <p:outputLabel value="Digite o valor em real" />
+                <p:inputText value="#{trabalhoPar1Controlador.valorDigitado}" />
+
+                <p:outputLabel value="Digite a cotação do Dolar"/>
+                <p:inputText value="#{trabalhoPar1Controlador.cotacao}"/>
+
+                <p:outputLabel value="Resultado: "/>
+                <p:inputText id="txResultado" readonly="True" value="#{trabalhoPar1Controlador.resultado}"/>
+
+            </h:panelGrid>
+
+            <h:panelGrid columns="1">
+                <p:commandButton value="Converter" actionListener="#{trabalhoPar1Controlador.converter()}" update="txResultado"/>
+            </h:panelGrid>
+
+        </p:panel>
+
+
+
+    </h:form>
+
+
+</h:body>
+
+</html>
